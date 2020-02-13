@@ -16,10 +16,10 @@ app.get('/', (request, response) => {
 })
 
 app.get('/users', routes.users.getUsers)
-// app.get('/users/:id', routes.users.getUserById)
-// app.post('/users', routes.users.createUser)
-// app.put('/users/:id', routes.users.updateUser)
-// app.delete('/users/:id', routes.users.deleteUser)
+app.get('/users/:id', routes.users.getUserById)
+app.post('/users', routes.users.createUser)
+app.put('/users/:id', routes.users.updateUser)
+app.delete('/users/:id', routes.users.deleteUser)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
