@@ -20,6 +20,7 @@ module.exports = function(sequelize, DataTypes) {
 			field: 'email'
 		}
 	}, {
-		tableName: 'users'
+		tableName: 'users',
+		timestamps: false
 	});
 };

@@ -25,7 +25,7 @@ const getUserById = (request, response) => {
 
 const createUser = (request, response) => {
     return User.create(request.body)
-    .then((user) => {
+    .then((result) => {
         response.status(201).json('User added successfully')
     })
     .catch((error) => {
