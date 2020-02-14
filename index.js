@@ -1,8 +1,13 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
+require('dotenv').config()
+
+//Controllers
+const usersController = require('./controllers/users')
+
+//Routes
 const routes = require('./routes')
-const port = 3000
 
 app.use(bodyParser.json())
 app.use(
@@ -15,12 +20,12 @@ app.get('/', (request, response) => {
     response.json({ info: 'Node.js, Express and Postgres API' })
 })
 
-app.get('/users', routes.users.getUsers)
-app.get('/users/:id', routes.users.getUserById)
-app.post('/users', routes.users.createUser)
-app.put('/users/:id', routes.users.updateUser)
-app.delete('/users/:id', routes.users.deleteUser)
+app.get(routes.users, usersController.getUsers)
+app.get(routes.userById, usersController.getUserById)
+app.post(routes.users, usersController.createUser)
+app.put(routes.userById, usersController.updateUser)
+app.delete(routes.userById, usersController.deleteUser)
 
-app.listen(port, () => {
-    console.log(`App running on port ${port}.`)
+app.listen(process.env.API_PORT, () => {
+    console.log(`App running on port ${process.env.API_PORT}.`)
 })

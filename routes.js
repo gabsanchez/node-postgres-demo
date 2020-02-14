@@ -1,5 +1,7 @@
-const users = require('./routes/users')
+const users = '/users'
+const userById = '/users/:id'
 
 module.exports = {
-    users
+    users,
+    userById
 }
